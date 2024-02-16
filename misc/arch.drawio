@@ -1,0 +1,331 @@
+<mxfile host="Electron" modified="2024-02-16T12:47:05.120Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Z9ZGG7T9PuLKLVcgDt6A" version="23.0.2" type="device" pages="2">
+  <diagram name="Note" id="3Zfnaw0pozNmfTe4A1oO">
+    <mxGraphModel dx="6111" dy="5297" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xV0zA_bKIiWsqJfg-lMJ-1" value="C#(WPF) + C++(CLR)&lt;br&gt;&lt;br&gt;&lt;br&gt;UI 요구사항&lt;br&gt;1. 모드 선택 창(레지스트리/파일/인터넷/메모리 등 최적화 모드 선택화면)&lt;br&gt;2. &lt;b&gt;&lt;u&gt;현재 사용 중인 메모리 상태(Progressbar)&lt;/u&gt;&lt;/b&gt; + 프로세스 목록 + 최적화 버튼&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;&lt;u&gt;성능 최적화 목표 정의(C++/CLI)&lt;br&gt;1. 메모리 최적화(app 메모리 사용량 최소화, 메모리 누수 감지 및 수정 필요)&lt;/u&gt;&lt;/b&gt;&lt;br&gt;2. 파일 시스템 최적화(디스크 사용량 줄이고, 파일 접근 속도 향상을 위한 조각 모음, 캐시 관리 등의 기능)&lt;br&gt;&lt;br&gt;안정성 및 보안 요구 사항&lt;br&gt;&lt;b&gt;&lt;u&gt;1. 안정적 작동: 시스템 안정성을 보장하며 작업이 수행되어야 함. 시스템 크래시를 유발하거나 데이터가 손실되는&lt;br&gt;동작을 해서는 안 됨. 안전한 최적화 작업 수행을 보장해야 함.&lt;/u&gt;&lt;/b&gt;&lt;br&gt;2.데이터 백업 및 복원: 최적화 작업 이전 시스템 현재 상태 백업 후, 필요 시 복원하도록 해야 함.&lt;br&gt;&lt;br&gt;확장성 및 유지 보수 요구 사항&lt;br&gt;1. 모듈식 설계: 향후 기능 추가 및 수정을 용이하도록 모듈식 구조로 설계&lt;br&gt;&lt;b&gt;&lt;u&gt;2. 업데이트 메커니즘: 소프트웨어 업데이트를 쉽게 배포하고 적용할 수 있는 메커니즘 포함 필요&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;자동 실행 요구 사항&lt;br&gt;1. 시스템 시작 시 자동 실행: 프로그램이 윈도우 시작과 함께 자동으로 Background에서 실행되도록 설정.&lt;br&gt;작업 스케줄러 혹은 서비스를 이용한 구현&lt;br&gt;2. 최소 리소스 사용: 백그라운드 실행 시 해당 프로그램 자체로 인해 시스템의 성능에 미치는 영향을 최소화할 필요가 있음&lt;br&gt;&lt;br&gt;메모리 최적화 실행 요구 사항&lt;br&gt;&lt;b&gt;&lt;u&gt;1. 정기적인 최적화: 사용자가 설정한 간격(매시간/매일 등)으로 백그라운드에서 메모리 최적화 작업을 자동으로 실행&lt;br&gt;2. 메모리 최적화 로직: 사용 중인 메모리를 해제하거나 사용하지 않는 프로세스의 메모리를 정리하는 등의 최적화 알고리즘 필요&lt;br&gt;운영체제 API 혹은 자체 최적화 알고리즘 구현을 통해 적용 가능&lt;br&gt;3. 안전성 보장: 메모리 최적화 과정에서 시스템 안정성 해치지 않도록 주의 필요&lt;br&gt;필수 시스템 프로세스나 서비스를 종료하지 않도록 해야 하며, 데이터 손실이 발생하지 않도록 해야 함&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;UI 및 설정&lt;br&gt;1. 사용자 설정 가능: 사용자가 메모리 최적화 작업의 실행 주기를 설정하도록 해야 함. GUI를 통한 설정이 보장되어야 함.&lt;br&gt;필요 시 고급 설정이 제공되어야 함.&lt;br&gt;2. 상태 표시 및 로그 기록: 백그라운드에서 실행되는 동안의 작업 상태를 log로 기록하고, 사용자가 이를 확인할 수 있도록 해야 함&lt;br&gt;&lt;br&gt;구현 고려 사항&lt;br&gt;&lt;b&gt;&lt;u&gt;1. 작업 스케줄러 활용: 윈도우 작업 스케줄러를 이용해 특정 시간마다 프로그램이 실행되도록 할 수 있음.&lt;br&gt;이 방법은 구현이 상대적으로 간단하며 윈도우 내장 기능을 활용하므로 안정적&lt;br&gt;2. 서비스로 구현: 윈도우 서비스를 통한 구현. 서비스로 구현 시 시스템 시작 시 자동으로 실행되도록 할 수 있으며, 사용자가 로그인하지&lt;br&gt;않더라도 백그라운드에서 계속 작업을 수행할 수 있음.&lt;/u&gt;&lt;/b&gt;&lt;br&gt;3. 메모리 관리 API 사용: 메모리 최적화를 위하여 윈도우 API를 사용할 수 있음. 해당 API를 통해 메모리 사용량을 모니터링하고&lt;br&gt;필요에 따른 최적화 제공 가능&lt;br&gt;&lt;br&gt;사용자 설정 관리 로직&lt;br&gt;&lt;b&gt;&lt;u&gt;1. 설정 저장 및 불러오기: `config.json` 과 같은 형태의 설정 파일 사용&lt;br&gt;2. 즉시 적용 및 유지: 프로그램 실행 중 설정이 변경될 경우 즉시 적용되도록, 설정 변경 로직에 변경 사항을 실시간으로 반영하는 코드&lt;br&gt;필요. 프로그램 시작 시 설정 파일을 읽어 이전 세션의 설정을 불러오는 로직 필요&lt;br&gt;&lt;/u&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;u&gt;다국어 지원&lt;br&gt;1. GUI에서의 다국어 지원 구현은 리소스 파일 사용&lt;br&gt;각 언어 별 리소스 파일(*.resx)을 만들고, UI xaml에 바인딩 수행&lt;br&gt;2. 언어 변경: 앱 내부에서 언어 변경 희망 시, UITHREAD의 `CurrentCulture`, `CurrentUICulture` 변경을 위한 로직 추가 필요&lt;br&gt;변경 후 UI 새로고짐 필요할 것.&lt;/u&gt;&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;rounded=0;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-5030" y="-4598" width="481" height="186" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="3BCHhAFJSzbiTQAhJHDq" name="version1">
+    <mxGraphModel dx="3328" dy="2324" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a9DMgypwvxQqP-UNIdZI-3" value="Main" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1067" y="-1156" width="487" height="297" as="geometry" />
+        </mxCell>
+        <mxCell id="X2ArkmkqPFS_o3jbjC4S-1" value="Main.xaml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1145" y="-1143" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5NTVVo5ZDTiqUherBxus-1" value="" style="image;sketch=0;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/mscae/VirtualMachineWindows.svg;" parent="1" vertex="1">
+          <mxGeometry x="-1621.8899999999999" y="-1408" width="109.78" height="101" as="geometry" />
+        </mxCell>
+        <mxCell id="5NTVVo5ZDTiqUherBxus-2" value="Only For Windows" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1640" y="-1296" width="146" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5NTVVo5ZDTiqUherBxus-3" value="Visual C++&lt;br&gt;Visual C#" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1603.1100000000001" y="-1243" width="91" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5NTVVo5ZDTiqUherBxus-10" value="Optimize" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=14;fillColor=#666666;align=center;strokeColor=#4D4D4D;fontColor=#ffffff;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1051" y="-1110" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5NTVVo5ZDTiqUherBxus-11" value="Settings" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=14;fillColor=#666666;align=center;strokeColor=#4D4D4D;fontColor=#ffffff;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-910" y="-1110" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZVNCuC39Zk1hhesmhONq-1" value="&lt;h1&gt;System Info&lt;/h1&gt;&lt;div&gt;Computer Name:&amp;nbsp;&lt;/div&gt;&lt;div&gt;Operating System:&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Processor:&amp;nbsp;&lt;/div&gt;&lt;div&gt;Memory:&amp;nbsp;&lt;/div&gt;&lt;div&gt;Page file:&amp;nbsp;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;overflow=hidden;rounded=0;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1051" y="-1074" width="225" height="149" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="ZVNCuC39Zk1hhesmhONq-2" target="MeVD-ACa870Jlx9xFW9A-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZVNCuC39Zk1hhesmhONq-2" value="Info" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=14;fillColor=#666666;align=center;strokeColor=#4D4D4D;fontColor=#ffffff;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-718.5" y="-1110" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-2" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.rrect;rSize=5;fillColor=#E9ECEF;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-1046" y="-899" width="444" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-3" value="" style="html=1;shadow=0;dashed=0;shape=mxgraph.bootstrap.leftButton;rSize=5;fillColor=#FFBC26;strokeColor=none;resizeHeight=1;" parent="MeVD-ACa870Jlx9xFW9A-2" vertex="1">
+          <mxGeometry width="116" height="20" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-4" value="n %" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-662" y="-925" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-5" value="mb / mb used" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1047" y="-925" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-6" value="Info" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-473" y="-1285" width="411" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-7" value="Info.xaml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-538" y="-1280" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-8" value="Check for update" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=14;fillColor=#666666;align=center;strokeColor=#4D4D4D;fontColor=#ffffff;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-449" y="-1232" width="174" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-10" value="&lt;h1&gt;OptiPulse&lt;/h1&gt;&lt;div&gt;Current Version:&amp;nbsp;&lt;/div&gt;&lt;div&gt;Latest Version:&amp;nbsp;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;overflow=hidden;rounded=0;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-449" y="-1192" width="226" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-11" value="Settings" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.window;align=left;verticalAlign=top;spacingLeft=8;strokeColor2=#008cff;strokeColor3=#c4c4c4;fontColor=#666666;mainText=;fontSize=17;labelBackgroundColor=none;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1248" y="-1488" width="450" height="222" as="geometry" />
+        </mxCell>
+        <mxCell id="MeVD-ACa870Jlx9xFW9A-12" value="Launch on Windows Startup" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=14;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1235" y="-1361" width="12" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-1" value="English" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iComboBox;spacingTop=2;spacingLeft=2;align=left;strokeColor=#444444;fontColor=#666666;buttonText=;fontSize=12;fillColor=#dddddd;fillColor2=#3D5565;sketch=0;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1159" y="-1439.5" width="131" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-3" value="Language" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1235" y="-1443" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-6" value="Apply" style="rounded=1;html=1;shadow=0;dashed=0;whiteSpace=wrap;fontSize=14;fillColor=#666666;align=center;strokeColor=#4D4D4D;fontColor=#ffffff;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-942" y="-1312" width="126" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-7" value="Automatic Optimization Interval" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1235" y="-1406" width="211" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-8" value="1 hours" style="strokeWidth=1;html=1;shadow=0;dashed=0;shape=mxgraph.ios.iComboBox;spacingTop=2;spacingLeft=2;align=left;strokeColor=#444444;fontColor=#666666;buttonText=;fontSize=12;fillColor=#dddddd;fillColor2=#3D5565;sketch=0;whiteSpace=wrap;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1021" y="-1402.5" width="131" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.698;entryY=1.014;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5NTVVo5ZDTiqUherBxus-11" target="MeVD-ACa870Jlx9xFW9A-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UaumwbnEJ7-n5Fnz4-d0-10" value="Settings.xaml" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontFamily=SF Pro Display;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="-1349" y="-1460" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-2" value="Main" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1231" y="-738" width="193" height="120" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-3" value="- _dataContext : MainViewModel" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="yhCnuyUfRfDw0pVGO4mp-2" vertex="1">
+          <mxGeometry y="26" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-6" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="yhCnuyUfRfDw0pVGO4mp-2" vertex="1">
+          <mxGeometry y="52" width="193" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-7" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="yhCnuyUfRfDw0pVGO4mp-2" vertex="1">
+          <mxGeometry y="60" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-8" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="yhCnuyUfRfDw0pVGO4mp-2" vertex="1">
+          <mxGeometry y="86" width="193" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yhCnuyUfRfDw0pVGO4mp-9" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="yhCnuyUfRfDw0pVGO4mp-2" vertex="1">
+          <mxGeometry y="94" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-19" value="Implement" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=SF Pro Display;dashed=1;endArrow=block;endFill=0;" parent="1" source="D43k7bPSxAePFMjNc4Ca-1" target="D43k7bPSxAePFMjNc4Ca-17" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-778" y="-774" />
+              <mxPoint x="-655" y="-774" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-1" value="MainViewModel" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-980" y="-760" width="284" height="207" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-2" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-1" vertex="1">
+          <mxGeometry y="26" width="284" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-3" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-1" vertex="1">
+          <mxGeometry y="52" width="284" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-4" value="+ MemoryStatus : int { get; set; }&#xa;+ NavigateSettingsCommand : ICommand { get; }&#xa;+ NavigateInfoCommand : ICommand { get; }&#xa;+ OptimizeMemoryCommand : ICommand { get; }" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-1" vertex="1">
+          <mxGeometry y="60" width="284" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-5" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-1" vertex="1">
+          <mxGeometry y="129" width="284" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-6" value="- NavigateSettings() : void&#xa;- NavigateInfo() : void&#xa;- OptimizeMemory() : void&#xa;+ NotifyPropertyChanged(string) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-1" vertex="1">
+          <mxGeometry y="137" width="284" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-9" value="Composition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=diamondThin;endFill=1;" parent="1" source="yhCnuyUfRfDw0pVGO4mp-3" target="D43k7bPSxAePFMjNc4Ca-1" edge="1">
+          <mxGeometry x="0.3761" y="13" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-1014" y="-700" />
+              <mxPoint x="-1014" y="-775" />
+              <mxPoint x="-838" y="-775" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-17" value="&amp;lt;Interface&amp;gt;&lt;br&gt;INotifyPropertyChanged" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-741" y="-836" width="171" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-20" value="Info" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-294" y="-767" width="193" height="120" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-21" value="- _dataContext : InfoViewModel" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-20" vertex="1">
+          <mxGeometry y="26" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-22" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-20" vertex="1">
+          <mxGeometry y="52" width="193" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-23" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-20" vertex="1">
+          <mxGeometry y="60" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-24" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-20" vertex="1">
+          <mxGeometry y="86" width="193" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-25" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-20" vertex="1">
+          <mxGeometry y="94" width="193" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-32" value="InfoViewModel" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-563" y="-675" width="237" height="136" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-33" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-32" vertex="1">
+          <mxGeometry y="26" width="237" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-34" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-32" vertex="1">
+          <mxGeometry y="52" width="237" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-35" value="+ CheckForUpdateCommand : ICommand" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-32" vertex="1">
+          <mxGeometry y="60" width="237" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-36" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-32" vertex="1">
+          <mxGeometry y="86" width="237" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-37" value="- CheckForUpdate() : void&#xa;+ NotifyPropertyChanged(string) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-32" vertex="1">
+          <mxGeometry y="94" width="237" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-41" value="SettingsViewModel" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-948" y="-239" width="239" height="136" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-42" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-41" vertex="1">
+          <mxGeometry y="26" width="239" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-43" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-41" vertex="1">
+          <mxGeometry y="52" width="239" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-44" value="+ ApplyCommand : ICommand" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-41" vertex="1">
+          <mxGeometry y="60" width="239" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-45" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-41" vertex="1">
+          <mxGeometry y="86" width="239" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-46" value="- ApplySettings() : void&#xa;+ NotifyPropertyChanged(string) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-41" vertex="1">
+          <mxGeometry y="94" width="239" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-47" value="Implement" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.838;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;dashed=1;" parent="1" source="D43k7bPSxAePFMjNc4Ca-32" target="D43k7bPSxAePFMjNc4Ca-17" edge="1">
+          <mxGeometry x="-0.2852" y="-11" relative="1" as="geometry">
+            <mxPoint x="-494.8100000000002" y="-733.9590000000001" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-422" y="-704" />
+              <mxPoint x="-598" y="-704" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-48" value="Implement" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.653;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;endArrow=block;endFill=0;" parent="1" source="D43k7bPSxAePFMjNc4Ca-41" target="D43k7bPSxAePFMjNc4Ca-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-49" value="Settings" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-649" y="-337" width="160" height="120" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-50" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-49" vertex="1">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-51" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-49" vertex="1">
+          <mxGeometry y="52" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-52" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-49" vertex="1">
+          <mxGeometry y="60" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-53" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-49" vertex="1">
+          <mxGeometry y="86" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-54" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-49" vertex="1">
+          <mxGeometry y="94" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-56" value="Composition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.685;entryY=-0.004;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamondThin;endFill=1;" parent="1" source="D43k7bPSxAePFMjNc4Ca-50" target="D43k7bPSxAePFMjNc4Ca-41" edge="1">
+          <mxGeometry x="0.0349" y="-16" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-785" y="-300" />
+              <mxPoint x="-785" y="-246" />
+              <mxPoint x="-784" y="-246" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-57" value="Composition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.663;entryY=-0.002;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamondThin;endFill=1;" parent="1" source="D43k7bPSxAePFMjNc4Ca-21" target="D43k7bPSxAePFMjNc4Ca-32" edge="1">
+          <mxGeometry x="-0.3096" y="-13" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-65" value="Implement" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;dashed=1;" parent="1" source="D43k7bPSxAePFMjNc4Ca-58" target="D43k7bPSxAePFMjNc4Ca-64" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-66" value="Composition" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=diamondThin;endFill=1;" parent="1" source="D43k7bPSxAePFMjNc4Ca-58" target="D43k7bPSxAePFMjNc4Ca-4" edge="1">
+          <mxGeometry x="-0.0925" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-930" y="-538" />
+              <mxPoint x="-644" y="-538" />
+              <mxPoint x="-644" y="-665" />
+              <mxPoint x="-691" y="-665" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-58" value="RelayCommand" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1038" y="-476" width="179" height="120" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-59" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-58" vertex="1">
+          <mxGeometry y="26" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-60" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-58" vertex="1">
+          <mxGeometry y="52" width="179" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-61" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-58" vertex="1">
+          <mxGeometry y="60" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-62" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-58" vertex="1">
+          <mxGeometry y="86" width="179" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-63" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-58" vertex="1">
+          <mxGeometry y="94" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-64" value="&amp;lt;Interface&amp;gt;&lt;br&gt;ICommand" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=SF Pro Display;" parent="1" vertex="1">
+          <mxGeometry x="-1187" y="-559" width="171" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-73" value="NativeCode" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;fontFamily=SF Pro Display;strokeColor=#FF73DE;" parent="1" vertex="1">
+          <mxGeometry x="-1568" y="-561" width="179" height="120" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-74" value="-" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
+          <mxGeometry y="26" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-75" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;strokeColor=#FF73DE;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
+          <mxGeometry y="52" width="179" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-76" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
+          <mxGeometry y="60" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-77" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontFamily=SF Pro Display;strokeColor=#FF73DE;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
+          <mxGeometry y="86" width="179" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="D43k7bPSxAePFMjNc4Ca-78" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
+          <mxGeometry y="94" width="179" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="l0GwzDRgp9mUON3SJ-a9-1" value="&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b style=&quot;&quot;&gt;C++(Back) CLI :&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;시스템 관련된 기능 구현&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# WPF UI(Front) : 현수, 혜원&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# API Library(Back) : 창현&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1335" y="-1071" width="250" height="148" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
