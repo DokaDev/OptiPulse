@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-02-16T12:47:05.120Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Z9ZGG7T9PuLKLVcgDt6A" version="23.0.2" type="device" pages="2">
+<mxfile host="Electron" modified="2024-02-18T11:09:05.849Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="A8nhkhpNYddWVaTnkn7o" version="23.1.5" type="device" pages="3">
   <diagram name="Note" id="3Zfnaw0pozNmfTe4A1oO">
-    <mxGraphModel dx="6111" dy="5297" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="6231" dy="5565" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -11,7 +11,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="3BCHhAFJSzbiTQAhJHDq" name="version1">
-    <mxGraphModel dx="3328" dy="2324" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3433" dy="2341" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -322,9 +322,23 @@
         <mxCell id="D43k7bPSxAePFMjNc4Ca-78" value="+ " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontFamily=SF Pro Display;" parent="D43k7bPSxAePFMjNc4Ca-73" vertex="1">
           <mxGeometry y="94" width="179" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="l0GwzDRgp9mUON3SJ-a9-1" value="&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b style=&quot;&quot;&gt;C++(Back) CLI :&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;시스템 관련된 기능 구현&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# WPF UI(Front) : 현수, 혜원&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# API Library(Back) : 창현&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="l0GwzDRgp9mUON3SJ-a9-1" value="&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b style=&quot;&quot;&gt;C++(Back) CLI :&amp;nbsp;&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;시스템 관련된 기능 구현&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;SF Pro Display&amp;quot;; background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# WPF UI(Front) : 현수, 혜원&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left; font-size: 18px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot; face=&quot;SF Pro Display&quot;&gt;C# API Library(Back) : 창현&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-1335" y="-1071" width="250" height="148" as="geometry" />
         </mxCell>
+        <mxCell id="3BzIy02x6Q2mPPPhf3tE-1" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://www.c-sharpcorner.com/UploadFile/0cefc4/glass-style-progressbar-for-windows-application/Images/Untitled.png;" vertex="1" parent="1">
+          <mxGeometry x="-1969" y="-41" width="255" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="3BzIy02x6Q2mPPPhf3tE-2" value="&lt;font face=&quot;SF Pro Display&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Button&lt;br&gt;ProgressBar&lt;br&gt;ComboBox&lt;br&gt;CheckBox&lt;br&gt;---&lt;br&gt;ListView&lt;br&gt;RadioButton&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1699.11" y="-41" width="96" height="146" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="PgiO6YUHUYWBrTIGTxil" name="Page-3">
+    <mxGraphModel dx="1031" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
       </root>
     </mxGraphModel>
   </diagram>
