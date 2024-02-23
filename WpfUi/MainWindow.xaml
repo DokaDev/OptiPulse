@@ -57,11 +57,22 @@
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Width="760" Height="69" Grid.RowSpan="2">
-            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="0, 10, 0, 0" Click="BtnOpt_OnClick"/>
-            <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="20, 10, 0, 0" Click="BtnSet_OnClick"/>
-            <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="200, 10, 0, 0" Click="BtnInfo_OnClick"/>
+        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0">
+
+            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35"/>
+            --><!--<Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="0, 10, 0, 0"/>
+    <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="20, 10, 0, 0"/>
+    <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="200, 10, 0, 0"/>--><!--
+        </StackPanel>-->
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="760" Height="69" Grid.Row="0">
+            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="0, 10, 0, 0"/>
+            <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="20, 10, 0, 0"/>
+            <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="200, 10, 0, 0"/>
         </StackPanel>
+        
+        <!-- StackPanel로 컨테이닝-->
+        
         <TextBlock Grid.Row="1" Text="System Info" Margin="0,10,0,229" FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" Width="750"/>
 
         <TextBlock Grid.Row="1" Text="Computer Name: " Margin="25,90,25,170" />
@@ -71,8 +82,10 @@
         <TextBlock Grid.Row="1" Text="Memory: " Margin="25,195,25,65" />
         <TextBlock Grid.Row="1" Text="Page file: " Margin="25,225,25,35" />
 
+        <!-- StackPanel로 컨테이닝 -->
         <TextBlock Name="MbUsed" Grid.Row="1" Text="mb / mb used" Margin="25,286,400,59" Grid.RowSpan="2"/>
         <TextBlock Name="Percent" Grid.Row="1" Text="n %" Margin="0,286,25,64" HorizontalAlignment="Right" Width="35" Grid.RowSpan="2"/>
-        <ProgressBar Style="{StaticResource CustomProgressBarStyle}" Value="10" Minimum="0" Maximum="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750" Height="32" Margin="0,12,0,0" Grid.Row="2" Foreground="gold"/>
+
+        <ProgressBar Style="{StaticResource CustomProgressBarStyle}" Value="40" Minimum="0" Maximum="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750" Height="32" Margin="0,12,0,0" Grid.Row="2" Foreground="gold"/>
     </Grid>
 </Window>
