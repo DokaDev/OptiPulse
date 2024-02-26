@@ -1,35 +1,54 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace JsonParser {
-    public class JsonManager {
-        public static Dictionary<string, string>? Dics = new();
-        public static readonly string PATH = "./config.json";
+    public class JsonManager : IJsonParser {
+        public string PATH { get; }
 
-        public JsonManager() {
-                CreateConfigFile();
-                string jsonString = File.ReadAllText(PATH);
-                Dics = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+        public JsonManager(string path) {
+            PATH = path;
+            Init();
+        }
+
+        public void Init() {
+            string initJson = "{}";
+            if(!File.Exists(PATH))
+                File.WriteAllText(PATH, initJson);
+        }
+
+        public string GetValue(string key) {
+            using(FileStream fs = File.OpenRead(PATH)) {
+                var options = new JsonSerializerOptions { AllowTrailingCommas = true };
+                Dictionary<string, string> values = JsonSerializer.Deserialize<Dictionary<string, string>>(fs, options);
+
+                if(values != null && values.ContainsKey(key))
+                    return values[key];
             }
+            return null;
+        }
 
-        ~JsonManager() {
-            string json = JsonSerializer.Serialize<Dictionary<string, string>>(Dics);
-            File.WriteAllText(PATH, json);
+        public void SetValue(string key, string value) {
+            Dictionary<string, string> values;
+
+            // Get Existing Values
+            if(File.Exists(PATH)) {
+                using(FileStream fs = File.OpenRead(PATH)) {
+                    var options = new JsonSerializerOptions { AllowTrailingCommas = true };
+                    values = JsonSerializer.Deserialize<Dictionary<string, string>>(fs, options) ?? new Dictionary<string, string>();
+                }
+            } else values = new Dictionary<string, string>();
+
+            // Write New Value
+            values[key] = value;
+
+            // Overwrite File
+            using(FileStream fs = File.Create(PATH)) {
+                var options = new JsonSerializerOptions { AllowTrailingCommas = true };
+                JsonSerializer.Serialize<Dictionary<string, string>>(fs, values, options);
+            }
         }
-        
-        public void CreateConfigFile() {
-            if(!File.Exists(PATH)) File.Create(PATH);
+
+        public Dictionary<string, string> GetAllValues() {
+            throw new NotImplementedException();
         }
-        
-        public string GetValueByKey(string key) {
-            return Dics[key];
-        }
-        
-        public void SetValueByKey(string key, string value) {
-            Dics.Add(key, value);
-            // Set 하면서 동기화 하는건가?
-        }
-        
-        
     }
 }
