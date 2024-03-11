@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfUi.View.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUi.View"
+        mc:Ignorable="d"
+        Title="Settings" Height="200" Width="400" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Language" Margin="15, 0, 0, 0"/>
+            <ComboBox Margin="10, 0, 0, 0" Width="110" Height="20"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Automatic Optimization Interval" Margin="15, 0, 0, 0"/>
+            <ComboBox Margin="10, 0, 0, 0" Width="110" Height="20"/>
+        </StackPanel>
+
+        <CheckBox Grid.Row="3" Content="Launch on Windows Startup" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,0,0,0"/>
+
+        <Button Grid.Row ="5" Name="BtnApply" Content="Apply" Width="110" Height="25" Margin="0, 0, 15, 10"
+                HorizontalAlignment="Right"
+                Background="DimGray" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
