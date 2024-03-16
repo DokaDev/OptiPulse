@@ -23,7 +23,62 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
             <TextBlock Text="Automatic Optimization Interval" Margin="15, 0, 0, 0"/>
-            <ComboBox Margin="10, 0, 0, 0" Width="110" Height="20"/>
+            <ComboBox Grid.Row="1" Margin="10, 0, 0, 0" Width="110" Height="20">
+                <ComboBox.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBox">
+                                    <Grid>
+                                        <Border
+                                x:Name="Border"
+                                CornerRadius="5"
+                                BorderBrush="Gray"
+                                BorderThickness="1">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                    <GradientStop Offset="0" Color="LightGray"/>
+                                                    <GradientStop Offset="1" Color="DimGray"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                            <Grid>
+                                                <ToggleButton
+                                                x:Name="ToggleButton"
+                                                BorderThickness="0"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Padding="0"
+                                                Grid.Column="1">
+                                                    <ToggleButton.Template>
+                                                        <ControlTemplate TargetType="ToggleButton">
+                                                            <Grid>
+                                                                <Path
+                                                                    x:Name="Arrow"
+                                                                    Margin="0,-6,4,0"
+                                                                    VerticalAlignment="Center"
+                                                                    HorizontalAlignment="Center"
+                                                                    Data="M0,0 L4,0 L2,4 Z">
+                                                                    <Path.Fill>
+                                                                        <SolidColorBrush Color="White"/>
+                                                                    </Path.Fill>
+                                                                </Path>
+                                                            </Grid>
+                                                        </ControlTemplate>
+                                                    </ToggleButton.Template>
+                                                </ToggleButton>
+                                                <Grid Margin="0,0,30,0">
+                                                    <Border Background="White" CornerRadius="5"/>
+                                                </Grid>
+                                                <Grid Background="White" Margin="10,0,12,0" />
+                                            </Grid>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
         </StackPanel>
 
         <CheckBox Grid.Row="3" Content="Launch on Windows Startup" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,0,0,0"/>

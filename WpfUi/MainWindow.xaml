@@ -6,86 +6,35 @@
         xmlns:local="clr-namespace:WpfUi"
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800" ResizeMode="NoResize" FontSize="18">
-    <Window.Resources>
-        <!-- Button Style -->
-        <Style TargetType="Button">
-            <Setter Property="Background" Value="DimGray"/>
-            <Setter Property="Foreground" Value="#ffffff"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="5" Margin="0,2,0,-2">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <!-- ProgressBar Style -->
-        <Style x:Key="CustomProgressBarStyle" TargetType="{x:Type ProgressBar}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ProgressBar}">
-                        <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="5">
-                            <Grid>
-                                <Rectangle x:Name="PART_Track" Margin="1"  Fill="{TemplateBinding Background}"/>
-                                <Rectangle x:Name="PART_Indicator" Margin="1" Fill="{TemplateBinding Foreground}" HorizontalAlignment="Left">
-                                    <Rectangle.Resources>
-                                        <Style TargetType="Rectangle">
-                                            <Setter Property="RadiusX" Value="5"/>
-                                            <Setter Property="RadiusY" Value="5"/>
-                                        </Style>
-                                    </Rectangle.Resources>
-                                </Rectangle>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
             <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="85"/>
         </Grid.RowDefinitions>
 
-        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="0">
-
-            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35"/>
-            --><!--<Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="0, 10, 0, 0"/>
-    <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="20, 10, 0, 0"/>
-    <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="200, 10, 0, 0"/>--><!--
-        </StackPanel>-->
-
+ 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="760" Height="69" Grid.Row="0">
-            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="0, 10, 0, 0"/>
-            <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="20, 10, 0, 0"/>
-            <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="200, 10, 0, 0"/>
+            <Button Name="BtnOpt" Content="Optimize" Width="180" Height="35" Margin="5, 10, 0, 0"/>
+            <Button Name="BtnSet" Content="Settings" Width="180" Height="35" Margin="25, 10, 0, 0"/>
+            <Button Name="BtnInfo" Content="Info" Width="180" Height="35" Margin="185, 10, 0, 0"/>
         </StackPanel>
         
-        <!-- StackPanel로 컨테이닝-->
-        
-        <TextBlock Grid.Row="1" Text="System Info" Margin="0,10,0,229" FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" Width="750"/>
+        <StackPanel Grid.Row="1" Margin="25,0,25,0">
+            <TextBlock Text="System Info" FontWeight="Bold" FontSize="40" Width="750"/>
 
-        <TextBlock Grid.Row="1" Text="Computer Name: " Margin="25,90,25,170" />
-        <TextBlock Grid.Row="1" Text="Operating System: " Margin="25,115,25,150" />
+            <TextBlock Text="Computer Name: " Margin="0,30,0,0"/>
+            <TextBlock Text="Operating System: "/>
 
-        <TextBlock Grid.Row="1" Text="Processor: " Margin="25,170,25,90" />
-        <TextBlock Grid.Row="1" Text="Memory: " Margin="25,195,25,65" />
-        <TextBlock Grid.Row="1" Text="Page file: " Margin="25,225,25,35" />
+            <TextBlock Text="Processor: " Margin="0,25,0,0"/>
+            <TextBlock Text="Memory: "/>
+            <TextBlock Text="Page file: "/>
+        </StackPanel>
 
-        <!-- StackPanel로 컨테이닝 -->
-        <TextBlock Name="MbUsed" Grid.Row="1" Text="mb / mb used" Margin="25,286,400,59" Grid.RowSpan="2"/>
-        <TextBlock Name="Percent" Grid.Row="1" Text="n %" Margin="0,286,25,64" HorizontalAlignment="Right" Width="35" Grid.RowSpan="2"/>
-
-        <ProgressBar Style="{StaticResource CustomProgressBarStyle}" Value="40" Minimum="0" Maximum="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="750" Height="32" Margin="0,12,0,0" Grid.Row="2" Foreground="gold"/>
+        <StackPanel Grid.Row="2">
+            <TextBlock Name="MbUsed" Text="mb / mb used" Margin="25,0,0,-40"/>
+            <TextBlock Name="Percent" Text="n %" Margin="0,0,25,0" HorizontalAlignment="Right" Width="35"/>
+            <ProgressBar Margin="0,5,0,0" Value="40" Minimum="0" Maximum="100" VerticalAlignment="Top" HorizontalAlignment="Center" Width="740" Height="32" Grid.Row="2" Foreground="gold"/>
+        </StackPanel>
     </Grid>
 </Window>
