@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using JsonParser;
+
+ConfigParser configParser = new ConfigParser();
+configParser.Init();
+configParser.SetLanguage("en");
